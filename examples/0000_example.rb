@@ -1,7 +1,5 @@
-# -*- coding: utf-8 -*-
-#
 # 一番シンプルな使い方
-#
+
 require "bundler/setup"
 Bundler.require(:default)
 
@@ -41,18 +39,21 @@ end
 # 使い方
 Kamome.anchor(:blue) do
   User.create!
-  User.count                    # => 1
+  User.count                    # => 
 
   Kamome.anchor(:green) do
-    User.count                  # => 0
+    User.count                  # => 
   end
 end
-# >> Kamome: nil => :blue
-# >> [blue]    (0.1ms)  begin transaction
-# >> [blue]   SQL (0.2ms)  INSERT INTO "users" DEFAULT VALUES
-# >> [blue]    (1.0ms)  commit transaction
-# >> [blue]    (0.1ms)  SELECT COUNT(*) FROM "users"
-# >> [blue] Kamome: :blue => :green
-# >> [blue] [green]    (0.2ms)  SELECT COUNT(*) FROM "users"
-# >> [blue] Kamome: :green => :blue
-# >> Kamome: :blue => nil
+# ~> /usr/local/var/rbenv/versions/2.4.0/lib/ruby/gems/2.4.0/gems/bundler-1.13.7/lib/bundler/definition.rb:179:in `rescue in specs': Your bundle is locked to json (1.8.3), but that version could not be found in any of the sources listed in your Gemfile. If you haven't changed sources, that means the author of json (1.8.3) has removed it. You'll need to update your bundle to a different version of json (1.8.3) that hasn't been removed in order to install. (Bundler::GemNotFound)
+# ~> 	from /usr/local/var/rbenv/versions/2.4.0/lib/ruby/gems/2.4.0/gems/bundler-1.13.7/lib/bundler/definition.rb:173:in `specs'
+# ~> 	from /usr/local/var/rbenv/versions/2.4.0/lib/ruby/gems/2.4.0/gems/bundler-1.13.7/lib/bundler/definition.rb:233:in `specs_for'
+# ~> 	from /usr/local/var/rbenv/versions/2.4.0/lib/ruby/gems/2.4.0/gems/bundler-1.13.7/lib/bundler/definition.rb:222:in `requested_specs'
+# ~> 	from /usr/local/var/rbenv/versions/2.4.0/lib/ruby/gems/2.4.0/gems/bundler-1.13.7/lib/bundler/runtime.rb:118:in `block in definition_method'
+# ~> 	from /usr/local/var/rbenv/versions/2.4.0/lib/ruby/gems/2.4.0/gems/bundler-1.13.7/lib/bundler/runtime.rb:19:in `setup'
+# ~> 	from /usr/local/var/rbenv/versions/2.4.0/lib/ruby/gems/2.4.0/gems/bundler-1.13.7/lib/bundler.rb:99:in `setup'
+# ~> 	from /usr/local/var/rbenv/versions/2.4.0/lib/ruby/gems/2.4.0/gems/bundler-1.13.7/lib/bundler/setup.rb:20:in `<top (required)>'
+# ~> 	from /usr/local/var/rbenv/versions/2.4.0/lib/ruby/2.4.0/rubygems/core_ext/kernel_require.rb:133:in `require'
+# ~> 	from /usr/local/var/rbenv/versions/2.4.0/lib/ruby/2.4.0/rubygems/core_ext/kernel_require.rb:133:in `rescue in require'
+# ~> 	from /usr/local/var/rbenv/versions/2.4.0/lib/ruby/2.4.0/rubygems/core_ext/kernel_require.rb:40:in `require'
+# ~> 	from -:3:in `<main>'

@@ -1,7 +1,4 @@
-# -*- coding: utf-8 -*-
-#
 # いろんな動作確認
-#
 
 require "bundler/setup"
 Bundler.require(:default)
@@ -99,12 +96,12 @@ end
 Kamome.anchor(:blue)  { User.count } # => 2
 Kamome.anchor(:green) { User.count } # => 1
 # >> Kamome: nil => :blue
-# >>    (0.0ms)  begin transaction
-# >>   SQL (0.3ms)  INSERT INTO "users" ("name") VALUES (?)  [["name", "blue"]]
+# >>    (0.1ms)  begin transaction
+# >>   SQL (0.4ms)  INSERT INTO "users" ("name") VALUES (?)  [["name", "blue"]]
 # >>    (0.9ms)  commit transaction
 # >>    (0.1ms)  SELECT COUNT(*) FROM "users"
 # >> Kamome: :blue => :green
-# >>    (0.2ms)  begin transaction
+# >>    (0.3ms)  begin transaction
 # >>   SQL (0.2ms)  INSERT INTO "users" ("name") VALUES (?)  [["name", "green"]]
 # >>    (0.9ms)  commit transaction
 # >>    (0.1ms)  SELECT COUNT(*) FROM "users"
@@ -121,11 +118,11 @@ Kamome.anchor(:green) { User.count } # => 1
 # >> Kamome: nil => :blue
 # >> [blue]    (0.0ms)  begin transaction
 # >> [blue]   SQL (0.2ms)  INSERT INTO "users" ("name") VALUES (?)  [["name", "blue"]]
-# >> [blue]    (0.8ms)  commit transaction
+# >> [blue]    (0.7ms)  commit transaction
 # >> [blue] Kamome: :blue => :green
 # >> [blue] [green]    (0.1ms)  begin transaction
 # >> [blue] [green]   SQL (0.3ms)  INSERT INTO "users" ("name") VALUES (?)  [["name", "green"]]
-# >> [blue] [green]    (1.1ms)  commit transaction
+# >> [blue] [green]    (0.9ms)  commit transaction
 # >> [blue] Kamome: :green => :blue
 # >> [blue]    (0.0ms)  begin transaction
 # >> [blue]   SQL (0.2ms)  INSERT INTO "users" ("name") VALUES (?)  [["name", "blue"]]
